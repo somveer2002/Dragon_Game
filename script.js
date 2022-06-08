@@ -1,5 +1,5 @@
 alert("Welcome to the Dragon Game - Created by SVSK. " + "\n\n"+"Your task is to save the dino from dragon." + "\n\n" +
-`Please use arrow key to jump, left key to move back and right key to move forward.` 
+`Please use UP arrow key to jump, LEFT key to move back and RIGHT key to move forward.` 
 )
 // alert.style.color= "red";
 
@@ -8,6 +8,13 @@ alert("Welcome to the Dragon Game - Created by SVSK. " + "\n\n"+"Your task is to
 let flag=false;
 let score = 0;
 let cross = true;
+
+audio = new Audio("music.mp3");
+audioGO = new Audio("gameover.mp3");
+setTimeout(() => {
+    audio.play();
+}, 500);
+
 document.onkeydown = function (e) {
     // console.log("key code is", e.keyCode);
     if (e.keyCode == 38) {
@@ -40,11 +47,7 @@ document.onkeydown = function (e) {
 
 }
 
-audio = new Audio("music.mp3");
-audioGO = new Audio("gameover.mp3");
-setTimeout(() => {
-    audio.play();
-}, 500);
+
 
 setInterval(() => {
     dino = document.querySelector('.dino');
@@ -66,12 +69,13 @@ setInterval(() => {
         
         
         gameOver.classList.add('gameOverAni');
-        audioGO.play();
-        obstacle.classList.remove('obstacleAni');
-        audio.pause();
         
+        obstacle.classList.remove('obstacleAni');
+        
+        audioGO.play();
         setTimeout(() => {
             audioGO.pause();
+            audio.pause();
         }, 3000);
         dino.classList.add('dinoDown');
         setTimeout(() => {
