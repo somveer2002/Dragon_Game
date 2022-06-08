@@ -63,7 +63,7 @@ setInterval(() => {
     offsetX = Math.abs(dx - ox);
     offsetY = Math.abs(dy - oy);
     // console.log(offsetX,offsetY);
-    if ((offsetX < 140 && offsetY < 20) ||(dx < -75 || dx > (parseInt(window.innerWidth)-220))) {
+    if ((offsetX < 140 && offsetY < 20) ) {
         // dino = document.querySelector('.dino'); 
         gameOver.style.visibility = 'visible';
         
